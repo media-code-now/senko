@@ -113,3 +113,45 @@ if (mobileMenuOverlay) {
 document.querySelectorAll('.fade-in-section').forEach((element) => {
   fadeObserver.observe(element);
 });
+
+// Collection carousel navigation
+const collectionGrid = document.querySelector('.collection-grid');
+const collectionPrevBtn = document.querySelector('.collection-nav-prev');
+const collectionNextBtn = document.querySelector('.collection-nav-next');
+
+if (collectionGrid && collectionPrevBtn && collectionNextBtn) {
+  const scrollAmount = () => {
+    const item = collectionGrid.querySelector('.collection-item');
+    return item ? item.offsetWidth + 24 : 300;
+  };
+
+  collectionPrevBtn.addEventListener('click', () => {
+    collectionGrid.scrollBy({
+      left: -scrollAmount(),
+      behavior: 'smooth'
+    });
+  });
+
+  collectionNextBtn.addEventListener('click', () => {
+    collectionGrid.scrollBy({
+      left: scrollAmount(),
+      behavior: 'smooth'
+    });
+  });
+
+  // Update button states based on scroll position
+  const updateButtonStates = () => {
+    const maxScroll = collectionGrid.scrollWidth - collectionGrid.clientWidth;
+    const currentScroll = collectionGrid.scrollLeft;
+
+    collectionPrevBtn.style.opacity = currentScroll > 0 ? '1' : '0.4';
+    collectionPrevBtn.style.pointerEvents = currentScroll > 0 ? 'auto' : 'none';
+    
+    collectionNextBtn.style.opacity = currentScroll < maxScroll - 1 ? '1' : '0.4';
+    collectionNextBtn.style.pointerEvents = currentScroll < maxScroll - 1 ? 'auto' : 'none';
+  };
+
+  collectionGrid.addEventListener('scroll', updateButtonStates, { passive: true });
+  window.addEventListener('resize', updateButtonStates);
+  updateButtonStates();
+}
