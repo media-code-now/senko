@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Shop — Senko</title>
+    <meta
+      name="description"
+      content="Explore the curated collection of Tamburins Korean fragrances at Senko."
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600&family=Inter:wght@200;300;400;500&family=Noto+Sans+KR:wght@300;400&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+    <script defer src="script.js"></script>
+  </head>
+  <body>
+    <div class="texture" aria-hidden="true"></div>
+    <header class="site-header visible">
+      <div class="nav-logo"><a href="index.html" style="text-decoration: none; color: inherit;">SENKO</a></div>
+      <button class="mobile-menu-toggle" aria-label="Toggle menu" aria-expanded="false">
+        <span class="hamburger-line"></span>
+        <span class="hamburger-line"></span>
+        <span class="hamburger-line"></span>
+      </button>
+      <nav class="nav" aria-label="Primary">
+        <a href="index.html">Home</a>
+        <a href="shop.html" class="active">Shop</a>
+        <a href="about.html">About</a>
+        <a href="contact.html">Contact</a>
+      </nav>
+    </header>
+    <div class="mobile-menu-overlay">
+      <nav class="mobile-nav" aria-label="Mobile navigation">
+        <a href="index.html" class="mobile-nav-link">Home</a>
+        <a href="shop.html" class="mobile-nav-link">Shop</a>
+        <a href="about.html" class="mobile-nav-link">About</a>
+        <a href="contact.html" class="mobile-nav-link">Contact</a>
+      </nav>
+      <div class="mobile-menu-footer">
+        <p class="mobile-menu-tagline">센코 — 한국 향수</p>
+      </div>
+    </div>
+
+    <main class="page-content">
+      <section class="page-hero">
+        <div class="page-hero-content">
+          <h1 class="page-title">Shop</h1>
+          <p class="page-subtitle">Curated fragrances from Tamburins</p>
+        </div>
+      </section>
+
+      <section class="shop-section">
+        <div class="shop-filters">
+          <button class="filter-btn active" data-filter="all">All</button>
+          <button class="filter-btn" data-filter="perfume">Perfume</button>
+          <button class="filter-btn" data-filter="oil">Perfume Oil</button>
+          <button class="filter-btn" data-filter="travel">Travel Size</button>
+        </div>
+
+        <div class="shop-grid">
+          <div class="product-card" data-category="perfume">
+            <div class="product-image-wrapper">
+              <img src="https://web-resource.tamburins.com/catalog/product/12001748/6ddb0829-13e9-4485-a37b-3efd9786fa3d/thumbnail_45ml_Perfume_Sunshine_v3.jpg" alt="Sunshine Perfume 45ml" class="product-image" />
+              <div class="product-overlay">
+                <button class="btn-view">View Details</button>
+              </div>
+            </div>
+            <div class="product-info">
+              <h3 class="product-name">Sunshine</h3>
+              <p class="product-type">Eau de Parfum 45ml</p>
+              <p class="product-notes">Citrus & White Florals</p>
+              <p class="product-price">$145</p>
+            </div>
+          </div>
+
+          <div class="product-card" data-category="perfume">
+            <div class="product-image-wrapper">
+              <img src="https://web-resource.tamburins.com/catalog/product/12001681/dc58d104-21ff-4c78-beaa-12d38c1d453f/thumbnail_50ml_Perfume_Sunshine_v2.jpg" alt="Sunshine Perfume 50ml" class="product-image" />
+              <div class="product-overlay">
+                <button class="btn-view">View Details</button>
+              </div>
+            </div>
+            <div class="product-info">
+              <h3 class="product-name">Sunshine</h3>
+              <p class="product-type">Eau de Parfum 50ml</p>
+              <p class="product-notes">Citrus & White Florals</p>
+              <p class="product-price">$165</p>
+            </div>
+          </div>
+
+          <div class="product-card" data-category="travel">
+            <div class="product-image-wrapper">
+              <img src="https://web-resource.tamburins.com/catalog/product/12001687/c5960850-74be-42f6-a8e9-e51c2a333e81/thumbnail_11ml_Perfume_Sunshine_v2.jpg" alt="Sunshine Perfume 11ml" class="product-image" />
+              <div class="product-overlay">
+                <button class="btn-view">View Details</button>
+              </div>
+            </div>
+            <div class="product-info">
+              <h3 class="product-name">Sunshine</h3>
+              <p class="product-type">Travel Size 11ml</p>
+              <p class="product-notes">Citrus & White Florals</p>
+              <p class="product-price">$45</p>
+            </div>
+          </div>
+
+          <div class="product-card" data-category="oil">
+            <div class="product-image-wrapper">
+              <img src="https://web-resource.tamburins.com/catalog/product/12001711/3d2a001a-e1e1-4679-a750-be7fd591a49a/thumbnail_perfumeOil_sunshine.jpg" alt="Sunshine Perfume Oil" class="product-image" />
+              <div class="product-overlay">
+                <button class="btn-view">View Details</button>
+              </div>
+            </div>
+            <div class="product-info">
+              <h3 class="product-name">Sunshine</h3>
+              <p class="product-type">Perfume Oil</p>
+              <p class="product-notes">Concentrated Essence</p>
+              <p class="product-price">$95</p>
+            </div>
+          </div>
+
+          <div class="product-card" data-category="perfume">
+            <div class="product-image-wrapper">
+              <img src="https://web-resource.tamburins.com/catalog/product/12001657/ada86946-ca87-443f-8ef7-70722195c9e3/thumbnail_50ml_Perfume_Hinoki2.jpg" alt="Hinoki Perfume" class="product-image" />
+              <div class="product-overlay">
+                <button class="btn-view">View Details</button>
+              </div>
+            </div>
+            <div class="product-info">
+              <h3 class="product-name">Hinoki</h3>
+              <p class="product-type">Eau de Parfum 50ml</p>
+              <p class="product-notes">Japanese Cypress</p>
+              <p class="product-price">$165</p>
+            </div>
+          </div>
+
+          <div class="product-card" data-category="perfume">
+            <div class="product-image-wrapper">
+              <img src="https://web-resource.tamburins.com/catalog/product/12001384/dbe38d4d-cf77-40a5-b171-6f7516d88a4a/thumbnail_Evening_50ml_Perfume.jpg" alt="Evening Perfume" class="product-image" />
+              <div class="product-overlay">
+                <button class="btn-view">View Details</button>
+              </div>
+            </div>
+            <div class="product-info">
+              <h3 class="product-name">Evening</h3>
+              <p class="product-type">Eau de Parfum 50ml</p>
+              <p class="product-notes">Deep Amber & Moss</p>
+              <p class="product-price">$165</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="cta-section">
+        <div class="cta-content">
+          <h2 class="cta-title">Questions about our fragrances?</h2>
+          <p class="cta-text">Our team is here to help you find your perfect scent.</p>
+          <a href="contact.html" class="btn-primary">Contact Us</a>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="footer-content">
+        <div class="footer-brand">
+          <h3 class="footer-logo">SENKO</h3>
+          <p class="footer-tagline">센코 — 한국 향수</p>
+        </div>
+        <div class="footer-links">
+          <div class="footer-col">
+            <h4>Navigate</h4>
+            <a href="index.html">Home</a>
+            <a href="shop.html">Shop</a>
+            <a href="about.html">About</a>
+            <a href="contact.html">Contact</a>
+          </div>
+          <div class="footer-col">
+            <h4>Follow</h4>
+            <a href="#">Instagram</a>
+            <a href="#">Facebook</a>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2026 Senko. Authorized Tamburins retailer.</p>
+        <p class="footer-location">Seoul · New York · Paris</p>
+      </div>
+    </footer>
+  </body>
+</html>

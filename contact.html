@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Contact — Senko</title>
+    <meta
+      name="description"
+      content="Get in touch with Senko. Visit our locations or reach out with inquiries."
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600&family=Inter:wght@200;300;400;500&family=Noto+Sans+KR:wght@300;400&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+    <script defer src="script.js"></script>
+  </head>
+  <body>
+    <div class="texture" aria-hidden="true"></div>
+    <header class="site-header visible">
+      <div class="nav-logo"><a href="index.html" style="text-decoration: none; color: inherit;">SENKO</a></div>
+      <button class="mobile-menu-toggle" aria-label="Toggle menu" aria-expanded="false">
+        <span class="hamburger-line"></span>
+        <span class="hamburger-line"></span>
+        <span class="hamburger-line"></span>
+      </button>
+      <nav class="nav" aria-label="Primary">
+        <a href="index.html">Home</a>
+        <a href="shop.html">Shop</a>
+        <a href="about.html">About</a>
+        <a href="contact.html" class="active">Contact</a>
+      </nav>
+    </header>
+    <div class="mobile-menu-overlay">
+      <nav class="mobile-nav" aria-label="Mobile navigation">
+        <a href="index.html" class="mobile-nav-link">Home</a>
+        <a href="shop.html" class="mobile-nav-link">Shop</a>
+        <a href="about.html" class="mobile-nav-link">About</a>
+        <a href="contact.html" class="mobile-nav-link">Contact</a>
+      </nav>
+      <div class="mobile-menu-footer">
+        <p class="mobile-menu-tagline">센코 — 한국 향수</p>
+      </div>
+    </div>
+
+    <main class="page-content">
+      <section class="page-hero">
+        <div class="page-hero-content">
+          <h1 class="page-title">Contact</h1>
+          <p class="page-subtitle">We're here to help</p>
+        </div>
+      </section>
+
+      <section class="contact-section">
+        <div class="contact-wrapper">
+          <div class="contact-info">
+            <h2>Get in Touch</h2>
+            <p class="contact-intro">
+              Whether you have questions about our fragrances, need styling advice, 
+              or want to visit one of our locations, we'd love to hear from you.
+            </p>
+
+            <div class="contact-methods">
+              <div class="contact-method">
+                <h3>Email</h3>
+                <a href="mailto:hello@senko.com">hello@senko.com</a>
+              </div>
+
+              <div class="contact-method">
+                <h3>Phone</h3>
+                <p>Seoul: +82 2 1234 5678</p>
+                <p>New York: +1 212 555 0123</p>
+                <p>Paris: +33 1 23 45 67 89</p>
+              </div>
+
+              <div class="contact-method">
+                <h3>Hours</h3>
+                <p>Monday–Saturday</p>
+                <p>11:00 AM – 8:00 PM</p>
+                <p class="contact-note">Sunday by appointment</p>
+              </div>
+            </div>
+
+            <div class="contact-social">
+              <h3>Follow Us</h3>
+              <div class="social-links">
+                <a href="#" class="social-link">Instagram</a>
+                <a href="#" class="social-link">Facebook</a>
+              </div>
+            </div>
+          </div>
+
+          <form class="contact-form" id="contactForm">
+            <div class="form-group">
+              <label for="name">Name</label>
+              <input type="text" id="name" name="name" required />
+            </div>
+
+            <div class="form-group">
+              <label for="email">Email</label>
+              <input type="email" id="email" name="email" required />
+            </div>
+
+            <div class="form-group">
+              <label for="location">Preferred Location</label>
+              <select id="location" name="location">
+                <option value="">Select a location</option>
+                <option value="seoul">Seoul</option>
+                <option value="newyork">New York</option>
+                <option value="paris">Paris</option>
+                <option value="online">Online Inquiry</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label for="subject">Subject</label>
+              <input type="text" id="subject" name="subject" required />
+            </div>
+
+            <div class="form-group">
+              <label for="message">Message</label>
+              <textarea id="message" name="message" rows="6" required></textarea>
+            </div>
+
+            <button type="submit" class="btn-submit">Send Message</button>
+          </form>
+        </div>
+      </section>
+
+      <section class="locations-map">
+        <h2 class="section-title">Our Locations</h2>
+        <div class="locations-grid">
+          <div class="location-card featured">
+            <div class="location-header">
+              <h3>Seoul</h3>
+              <span class="location-badge">Flagship</span>
+            </div>
+            <p class="location-address">
+              123 Gangnam-daero<br />
+              Gangnam District<br />
+              Seoul, 06001<br />
+              South Korea
+            </p>
+            <p class="location-hours">
+              <strong>Hours</strong><br />
+              Monday–Saturday: 11am–8pm<br />
+              Sunday: By appointment
+            </p>
+            <a href="#" class="location-link">Get Directions →</a>
+          </div>
+
+          <div class="location-card featured">
+            <div class="location-header">
+              <h3>New York</h3>
+            </div>
+            <p class="location-address">
+              456 Broadway<br />
+              SoHo<br />
+              New York, NY 10013<br />
+              United States
+            </p>
+            <p class="location-hours">
+              <strong>Hours</strong><br />
+              Monday–Saturday: 11am–7pm<br />
+              Sunday: By appointment
+            </p>
+            <a href="#" class="location-link">Get Directions →</a>
+          </div>
+
+          <div class="location-card featured">
+            <div class="location-header">
+              <h3>Paris</h3>
+            </div>
+            <p class="location-address">
+              78 Rue des Archives<br />
+              Le Marais<br />
+              75003 Paris<br />
+              France
+            </p>
+            <p class="location-hours">
+              <strong>Hours</strong><br />
+              Tuesday–Saturday: 11am–7pm<br />
+              Sunday–Monday: Closed
+            </p>
+            <a href="#" class="location-link">Get Directions →</a>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="footer-content">
+        <div class="footer-brand">
+          <h3 class="footer-logo">SENKO</h3>
+          <p class="footer-tagline">센코 — 한국 향수</p>
+        </div>
+        <div class="footer-links">
+          <div class="footer-col">
+            <h4>Navigate</h4>
+            <a href="index.html">Home</a>
+            <a href="shop.html">Shop</a>
+            <a href="about.html">About</a>
+            <a href="contact.html">Contact</a>
+          </div>
+          <div class="footer-col">
+            <h4>Follow</h4>
+            <a href="#">Instagram</a>
+            <a href="#">Facebook</a>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2026 Senko. Authorized Tamburins retailer.</p>
+        <p class="footer-location">Seoul · New York · Paris</p>
+      </div>
+    </footer>
+  </body>
+</html>

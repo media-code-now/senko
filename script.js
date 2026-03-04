@@ -155,3 +155,60 @@ if (collectionGrid && collectionPrevBtn && collectionNextBtn) {
   window.addEventListener('resize', updateButtonStates);
   updateButtonStates();
 }
+
+// Shop page filter functionality
+const filterButtons = document.querySelectorAll('.filter-btn');
+const productCards = document.querySelectorAll('.product-card');
+
+if (filterButtons.length > 0 && productCards.length > 0) {
+  filterButtons.forEach(button => {
+    button.addEventListener('click', () => {
+      const filter = button.getAttribute('data-filter');
+      
+      // Update active button
+      filterButtons.forEach(btn => btn.classList.remove('active'));
+      button.classList.add('active');
+      
+      // Filter products
+      productCards.forEach(card => {
+        const category = card.getAttribute('data-category');
+        
+        if (filter === 'all' || category === filter) {
+          card.style.display = 'flex';
+          setTimeout(() => {
+            card.style.opacity = '1';
+            card.style.transform = 'translateY(0)';
+          }, 10);
+        } else {
+          card.style.opacity = '0';
+          card.style.transform = 'translateY(20px)';
+          setTimeout(() => {
+            card.style.display = 'none';
+          }, 300);
+        }
+      });
+    });
+  });
+}
+
+// Contact form handling
+const contactForm = document.getElementById('contactForm');
+
+if (contactForm) {
+  contactForm.addEventListener('submit', (e) => {
+    e.preventDefault();
+    
+    // Get form data
+    const formData = new FormData(contactForm);
+    const data = Object.fromEntries(formData);
+    
+    // In a real application, you would send this to a server
+    console.log('Form submitted:', data);
+    
+    // Show success message
+    alert('Thank you for your message! We will get back to you soon.');
+    
+    // Reset form
+    contactForm.reset();
+  });
+}

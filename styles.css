@@ -481,10 +481,10 @@ section {
 
 .story-split {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
-  gap: 80px;
+  grid-template-columns: 1fr 1.3fr;
+  gap: 48px;
   align-items: center;
-  padding: 80px 8vw;
+  padding: 50px 8vw;
   opacity: 0;
   transform: translateY(30px);
   transition: opacity 1s ease, transform 1s ease;
@@ -521,7 +521,7 @@ section {
   line-height: 1.5;
   color: var(--champagne);
   font-weight: 300;
-  margin-bottom: 48px;
+  margin-bottom: 32px;
   letter-spacing: 0.02em;
 }
 
@@ -615,8 +615,8 @@ section {
   min-height: 70vh;
   display: grid;
   place-items: center;
-  padding: 100px 8vw;
-  margin: 50px 0;
+  padding: 60px 8vw;
+  margin: 30px 0;
   overflow: hidden;
   background: 
     radial-gradient(circle at 35% 40%, rgba(250, 245, 235, 0.8), transparent 55%),
@@ -672,7 +672,7 @@ section {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
   gap: 60px;
-  padding: 70px 8vw;
+  padding: 50px 8vw;
   align-items: center;
   opacity: 0;
   transform: translateY(30px);
@@ -876,144 +876,102 @@ section {
 .notes-grid,
 .craft-grid {
   display: grid;
-  gap: 32px;
+  gap: 28px;
   grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
 }
 
 .note-card {
-  background: 
-    linear-gradient(145deg, rgba(255, 255, 255, 0.65), rgba(250, 245, 235, 0.5));
-  backdrop-filter: blur(10px);
-  border: 1px solid rgba(212, 181, 122, 0.2);
-  border-radius: 16px;
-  padding: 40px 32px;
-  position: relative;
+  background: linear-gradient(145deg, rgba(255, 255, 255, 0.7), rgba(250, 245, 235, 0.6));
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(212, 181, 122, 0.25);
+  border-radius: 8px;
   overflow: hidden;
+  position: relative;
   transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
   box-shadow: 
-    0 4px 16px rgba(120, 92, 60, 0.08),
+    0 8px 24px rgba(120, 92, 60, 0.12),
     inset 0 1px 0 rgba(255, 255, 255, 0.8);
+  display: flex;
+  flex-direction: column;
 }
 
 .note-card::before {
   content: '';
   position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  height: 2px;
-  background: linear-gradient(90deg, 
-    transparent,
-    var(--champagne) 50%,
-    transparent
-  );
+  inset: 0;
+  background: linear-gradient(135deg, 
+    rgba(212, 181, 122, 0.08) 0%, 
+    transparent 50%, 
+    rgba(184, 147, 62, 0.06) 100%);
   opacity: 0;
   transition: opacity 0.5s ease;
+  pointer-events: none;
+  z-index: 1;
 }
 
 .note-card:hover {
   transform: translateY(-8px);
   box-shadow: 
-    0 12px 32px rgba(120, 92, 60, 0.15),
+    0 16px 40px rgba(120, 92, 60, 0.2),
     inset 0 1px 0 rgba(255, 255, 255, 0.9);
-  border-color: rgba(212, 181, 122, 0.35);
+  border-color: rgba(212, 181, 122, 0.4);
 }
 
 .note-card:hover::before {
   opacity: 1;
 }
 
-.note-icon {
-  margin-bottom: 20px;
-  transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+.note-card-image {
+  width: 100%;
+  aspect-ratio: 4/3;
+  overflow: hidden;
   position: relative;
-  filter: drop-shadow(0 4px 8px rgba(196, 160, 90, 0.3)) 
-          drop-shadow(0 8px 20px rgba(212, 181, 122, 0.2));
-  display: flex;
-  align-items: center;
-  justify-content: center;
 }
 
-.note-icon svg {
-  transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
-  opacity: 0.85;
+.note-card-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.7s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-.note-card:hover .note-icon {
-  transform: scale(1.15) translateY(-4px) rotate(5deg);
-  filter: drop-shadow(0 8px 16px rgba(196, 160, 90, 0.45)) 
-          drop-shadow(0 16px 40px rgba(184, 147, 62, 0.3))
-          drop-shadow(0 0 24px rgba(212, 181, 122, 0.4));
+.note-card:hover .note-card-image img {
+  transform: scale(1.08);
 }
 
-.note-card:hover .note-icon svg {
-  opacity: 1;
-}
-
-.note-layer {
-  font-family: "Cormorant Garamond", serif;
-  font-size: 1.4rem;
-  font-weight: 500;
-  letter-spacing: 0.08em;
-  color: var(--text);
-  margin-bottom: 16px;
-  text-transform: uppercase;
-}
-
-.note-divider {
-  width: 40px;
-  height: 1px;
-  background: linear-gradient(90deg, var(--champagne), transparent);
-  margin-bottom: 24px;
-  transition: width 0.5s cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-.note-card:hover .note-divider {
-  width: 60px;
-}
-
-.note-list {
-  list-style: none;
-  padding: 0;
-  margin: 0;
+.note-card-content {
+  padding: 32px 28px;
   display: flex;
   flex-direction: column;
   gap: 12px;
-}
-
-.note-list li {
-  font-family: "Inter", sans-serif;
-  font-size: 0.92rem;
-  font-weight: 300;
-  letter-spacing: 0.04em;
-  color: var(--text-soft);
-  padding-left: 20px;
   position: relative;
-  transition: all 0.3s ease;
+  z-index: 2;
 }
 
-.note-list li::before {
-  content: '·';
-  position: absolute;
-  left: 0;
-  color: var(--champagne);
-  font-size: 1.2rem;
-  line-height: 1;
-  transition: transform 0.3s ease;
-}
-
-.note-card:hover .note-list li {
+.note-card-title {
+  font-family: "Cormorant Garamond", serif;
+  font-size: 1.8rem;
+  font-weight: 500;
+  letter-spacing: 0.08em;
   color: var(--text);
-  padding-left: 24px;
+  text-transform: uppercase;
+  margin: 0;
 }
 
-.note-card:hover .note-list li::before {
-  transform: translateX(2px);
+.note-card-description {
+  font-family: "Inter", sans-serif;
+  font-size: 0.95rem;
+  font-weight: 300;
+  line-height: 1.7;
+  letter-spacing: 0.02em;
+  color: var(--text-soft);
+  margin: 0;
+  font-style: italic;
 }
 
 /* Collection Section */
 .collection {
-  padding: 120px 8vw;
+  padding: 60px 8vw;
   position: relative;
   background: linear-gradient(180deg, 
     rgba(246, 241, 232, 0) 0%, 
@@ -1041,8 +999,8 @@ section {
 .collection-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 48px;
-  margin-top: 60px;
+  gap: 32px;
+  margin-top: 40px;
   position: relative;
 }
 
@@ -1772,5 +1730,719 @@ section {
   .site-footer {
     gap: 20px;
     padding: 50px 5vw 60px;
+  }
+}
+
+/* Multi-page Styles */
+
+/* Active navigation state */
+.nav a.active,
+.mobile-nav-link.active {
+  color: var(--champagne-warm);
+  font-weight: 500;
+}
+
+/* Page Content Layout */
+.page-content {
+  padding-top: 100px;
+}
+
+/* Page Hero */
+.page-hero {
+  padding: 80px 8vw 50px;
+  text-align: center;
+  background: linear-gradient(180deg, 
+    rgba(246, 241, 232, 0.3) 0%, 
+    rgba(246, 241, 232, 0) 100%);
+}
+
+.page-hero-content {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.page-title {
+  font-family: "Cormorant Garamond", serif;
+  font-size: clamp(2.8rem, 7vw, 5rem);
+  font-weight: 400;
+  letter-spacing: 0.12em;
+  color: var(--text);
+  margin-bottom: 24px;
+  text-transform: uppercase;
+}
+
+.page-subtitle {
+  font-family: "Inter", sans-serif;
+  font-size: 1rem;
+  font-weight: 300;
+  letter-spacing: 0.08em;
+  color: var(--text-soft);
+}
+
+/* Shop Page Styles */
+.shop-section {
+  padding: 50px 8vw 60px;
+}
+
+.shop-filters {
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+  margin-bottom: 40px;
+  flex-wrap: wrap;
+}
+
+.filter-btn {
+  font-family: "Inter", sans-serif;
+  font-size: 0.88rem;
+  font-weight: 300;
+  letter-spacing: 0.06em;
+  padding: 12px 28px;
+  background: transparent;
+  border: 1px solid rgba(212, 181, 122, 0.3);
+  color: var(--text);
+  cursor: pointer;
+  transition: all 0.3s ease;
+  border-radius: 24px;
+  text-transform: uppercase;
+}
+
+.filter-btn:hover {
+  border-color: var(--champagne);
+  color: var(--champagne-warm);
+  background: rgba(212, 181, 122, 0.08);
+}
+
+.filter-btn.active {
+  background: linear-gradient(135deg, rgba(212, 181, 122, 0.15), rgba(196, 160, 90, 0.1));
+  border-color: var(--champagne);
+  color: var(--champagne-warm);
+}
+
+.shop-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 32px;
+}
+
+.product-card {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  transition: transform 0.4s ease;
+}
+
+.product-card:hover {
+  transform: translateY(-8px);
+}
+
+.product-image-wrapper {
+  position: relative;
+  aspect-ratio: 3/4;
+  overflow: hidden;
+  border-radius: 3px;
+  background: linear-gradient(135deg, rgba(246, 241, 232, 0.6), rgba(239, 230, 214, 0.6));
+  box-shadow: var(--shadow-soft);
+  transition: all 0.4s ease;
+  border: 1px solid rgba(212, 181, 122, 0.2);
+}
+
+.product-card:hover .product-image-wrapper {
+  box-shadow: var(--shadow-warm);
+}
+
+.product-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.6s ease;
+}
+
+.product-card:hover .product-image {
+  transform: scale(1.05);
+}
+
+.product-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, transparent 0%, rgba(95, 83, 68, 0.85) 100%);
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  padding: 32px;
+  opacity: 0;
+  transition: opacity 0.4s ease;
+}
+
+.product-card:hover .product-overlay {
+  opacity: 1;
+}
+
+.btn-view {
+  font-family: "Inter", sans-serif;
+  font-size: 0.88rem;
+  font-weight: 400;
+  letter-spacing: 0.08em;
+  padding: 14px 32px;
+  background: rgba(246, 241, 232, 0.95);
+  border: 1px solid var(--champagne);
+  color: var(--text);
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-transform: uppercase;
+  border-radius: 2px;
+}
+
+.btn-view:hover {
+  background: var(--champagne);
+  color: var(--ivory);
+}
+
+.product-info {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 0 4px;
+}
+
+.product-name {
+  font-family: "Cormorant Garamond", serif;
+  font-size: 1.5rem;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  color: var(--text);
+  text-transform: uppercase;
+}
+
+.product-type {
+  font-family: "Inter", sans-serif;
+  font-size: 0.9rem;
+  font-weight: 300;
+  letter-spacing: 0.04em;
+  color: var(--text-soft);
+}
+
+.product-notes {
+  font-family: "Inter", sans-serif;
+  font-size: 0.85rem;
+  font-weight: 300;
+  letter-spacing: 0.04em;
+  color: var(--text-soft);
+  font-style: italic;
+}
+
+.product-price {
+  font-family: "Inter", sans-serif;
+  font-size: 1.1rem;
+  font-weight: 400;
+  letter-spacing: 0.04em;
+  color: var(--champagne-warm);
+  margin-top: 4px;
+}
+
+/* About Page Styles */
+.about-intro {
+  padding: 50px 8vw;
+  background: linear-gradient(180deg, 
+    rgba(246, 241, 232, 0) 0%, 
+    rgba(239, 230, 214, 0.3) 50%, 
+    rgba(246, 241, 232, 0) 100%);
+}
+
+.about-text-block {
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.section-title {
+  font-family: "Cormorant Garamond", serif;
+  font-size: clamp(2rem, 5vw, 3rem);
+  font-weight: 400;
+  letter-spacing: 0.1em;
+  color: var(--text);
+  text-align: center;
+  margin-bottom: 32px;
+  text-transform: uppercase;
+}
+
+.text-content {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.text-content p {
+  font-family: "Inter", sans-serif;
+  font-size: 1.1rem;
+  font-weight: 300;
+  line-height: 1.9;
+  letter-spacing: 0.02em;
+  color: var(--text);
+}
+
+.about-philosophy {
+  padding: 60px 8vw;
+}
+
+.philosophy-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 32px;
+  margin-top: 40px;
+}
+
+.philosophy-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 20px;
+  padding: 36px 24px;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.5), rgba(239, 230, 214, 0.3));
+  border: 1px solid rgba(212, 181, 122, 0.2);
+  border-radius: 3px;
+  box-shadow: var(--shadow-soft);
+  transition: all 0.4s ease;
+}
+
+.philosophy-card:hover {
+  transform: translateY(-8px);
+  box-shadow: var(--shadow-warm);
+}
+
+.philosophy-icon {
+  filter: drop-shadow(0 4px 8px rgba(196, 160, 90, 0.3));
+}
+
+.philosophy-card h3 {
+  font-family: "Cormorant Garamond", serif;
+  font-size: 1.5rem;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  color: var(--text);
+  text-transform: uppercase;
+}
+
+.philosophy-card p {
+  font-family: "Inter", sans-serif;
+  font-size: 0.95rem;
+  font-weight: 300;
+  line-height: 1.8;
+  letter-spacing: 0.02em;
+  color: var(--text-soft);
+}
+
+.about-locations {
+  padding: 60px 8vw;
+  background: linear-gradient(180deg, 
+    rgba(246, 241, 232, 0) 0%, 
+    rgba(239, 230, 214, 0.3) 50%, 
+    rgba(246, 241, 232, 0) 100%);
+}
+
+.locations-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 32px;
+  margin-top: 40px;
+}
+
+.location-card {
+  padding: 32px;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.6), rgba(239, 230, 214, 0.4));
+  border: 1px solid rgba(212, 181, 122, 0.25);
+  border-radius: 3px;
+  box-shadow: var(--shadow-soft);
+  transition: all 0.4s ease;
+}
+
+.location-card:hover {
+  box-shadow: var(--shadow-warm);
+  transform: translateY(-4px);
+}
+
+.location-card h3 {
+  font-family: "Cormorant Garamond", serif;
+  font-size: 1.6rem;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  color: var(--text);
+  margin-bottom: 16px;
+  text-transform: uppercase;
+}
+
+.location-address,
+.location-hours {
+  font-family: "Inter", sans-serif;
+  font-size: 0.95rem;
+  font-weight: 300;
+  line-height: 1.8;
+  letter-spacing: 0.02em;
+  color: var(--text-soft);
+  margin-bottom: 16px;
+}
+
+/* Contact Page Styles */
+.contact-section {
+  padding: 50px 8vw 60px;
+}
+
+.contact-wrapper {
+  display: grid;
+  grid-template-columns: 1fr 1.2fr;
+  gap: 60px;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.contact-info h2 {
+  font-family: "Cormorant Garamond", serif;
+  font-size: 2.2rem;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  color: var(--text);
+  margin-bottom: 24px;
+  text-transform: uppercase;
+}
+
+.contact-intro {
+  font-family: "Inter", sans-serif;
+  font-size: 1rem;
+  font-weight: 300;
+  line-height: 1.8;
+  letter-spacing: 0.02em;
+  color: var(--text-soft);
+  margin-bottom: 32px;
+}
+
+.contact-methods {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  margin-bottom: 32px;
+}
+
+.contact-method h3 {
+  font-family: "Cormorant Garamond", serif;
+  font-size: 1.2rem;
+  font-weight: 500;
+  letter-spacing: 0.06em;
+  color: var(--text);
+  margin-bottom: 12px;
+  text-transform: uppercase;
+}
+
+.contact-method p,
+.contact-method a {
+  font-family: "Inter", sans-serif;
+  font-size: 0.95rem;
+  font-weight: 300;
+  line-height: 1.8;
+  letter-spacing: 0.02em;
+  color: var(--text-soft);
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.contact-method a:hover {
+  color: var(--champagne-warm);
+}
+
+.contact-note {
+  font-style: italic;
+  font-size: 0.88rem;
+}
+
+.contact-social h3 {
+  font-family: "Cormorant Garamond", serif;
+  font-size: 1.2rem;
+  font-weight: 500;
+  letter-spacing: 0.06em;
+  color: var(--text);
+  margin-bottom: 16px;
+  text-transform: uppercase;
+}
+
+.social-links {
+  display: flex;
+  gap: 24px;
+}
+
+.social-link {
+  font-family: "Inter", sans-serif;
+  font-size: 0.95rem;
+  font-weight: 300;
+  letter-spacing: 0.04em;
+  color: var(--text-soft);
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.social-link:hover {
+  color: var(--champagne-warm);
+}
+
+/* Contact Form */
+.contact-form {
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.5), rgba(239, 230, 214, 0.3));
+  padding: 36px;
+  border: 1px solid rgba(212, 181, 122, 0.25);
+  border-radius: 3px;
+  box-shadow: var(--shadow-soft);
+}
+
+.form-group {
+  margin-bottom: 20px;
+}
+
+.form-group label {
+  display: block;
+  font-family: "Inter", sans-serif;
+  font-size: 0.9rem;
+  font-weight: 400;
+  letter-spacing: 0.04em;
+  color: var(--text);
+  margin-bottom: 10px;
+  text-transform: uppercase;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+  width: 100%;
+  font-family: "Inter", sans-serif;
+  font-size: 0.95rem;
+  font-weight: 300;
+  padding: 14px 18px;
+  background: rgba(246, 241, 232, 0.6);
+  border: 1px solid rgba(212, 181, 122, 0.3);
+  border-radius: 2px;
+  color: var(--text);
+  transition: all 0.3s ease;
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+  outline: none;
+  border-color: var(--champagne);
+  background: rgba(246, 241, 232, 0.9);
+}
+
+.form-group textarea {
+  resize: vertical;
+  min-height: 120px;
+}
+
+.btn-submit {
+  font-family: "Inter", sans-serif;
+  font-size: 0.9rem;
+  font-weight: 400;
+  letter-spacing: 0.08em;
+  padding: 16px 48px;
+  background: linear-gradient(135deg, var(--champagne-soft), var(--champagne));
+  border: 1px solid var(--champagne-warm);
+  color: var(--ivory);
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-transform: uppercase;
+  border-radius: 2px;
+  width: 100%;
+  box-shadow: 0 4px 12px rgba(196, 160, 90, 0.3);
+}
+
+.btn-submit:hover {
+  background: linear-gradient(135deg, var(--champagne), var(--champagne-warm));
+  box-shadow: 0 6px 16px rgba(196, 160, 90, 0.4);
+  transform: translateY(-2px);
+}
+
+.btn-submit:active {
+  transform: translateY(0);
+}
+
+/* Locations Map Section */
+.locations-map {
+  padding: 60px 8vw;
+  background: linear-gradient(180deg, 
+    rgba(246, 241, 232, 0.3) 0%, 
+    rgba(246, 241, 232, 0) 100%);
+}
+
+.location-card.featured {
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.7), rgba(239, 230, 214, 0.5));
+}
+
+.location-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.location-badge {
+  font-family: "Inter", sans-serif;
+  font-size: 0.75rem;
+  font-weight: 400;
+  letter-spacing: 0.06em;
+  padding: 4px 12px;
+  background: linear-gradient(135deg, var(--champagne-soft), var(--champagne));
+  color: var(--ivory);
+  border-radius: 12px;
+  text-transform: uppercase;
+}
+
+.location-link {
+  font-family: "Inter", sans-serif;
+  font-size: 0.9rem;
+  font-weight: 400;
+  letter-spacing: 0.04em;
+  color: var(--champagne-warm);
+  text-decoration: none;
+  transition: color 0.3s ease;
+  margin-top: 12px;
+  display: inline-block;
+}
+
+.location-link:hover {
+  color: var(--champagne);
+}
+
+/* CTA Section */
+.cta-section {
+  padding: 60px 8vw;
+  text-align: center;
+  background: linear-gradient(180deg, 
+    rgba(239, 230, 214, 0.3) 0%, 
+    rgba(246, 241, 232, 0.5) 50%, 
+    rgba(239, 230, 214, 0.3) 100%);
+}
+
+.cta-content {
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+.cta-title {
+  font-family: "Cormorant Garamond", serif;
+  font-size: clamp(2rem, 5vw, 3.5rem);
+  font-weight: 400;
+  letter-spacing: 0.1em;
+  color: var(--text);
+  margin-bottom: 24px;
+  text-transform: uppercase;
+}
+
+.cta-text {
+  font-family: "Inter", sans-serif;
+  font-size: 1.1rem;
+  font-weight: 300;
+  line-height: 1.8;
+  letter-spacing: 0.02em;
+  color: var(--text-soft);
+  margin-bottom: 32px;
+}
+
+.btn-primary {
+  display: inline-block;
+  font-family: "Inter", sans-serif;
+  font-size: 0.9rem;
+  font-weight: 400;
+  letter-spacing: 0.08em;
+  padding: 16px 48px;
+  background: linear-gradient(135deg, var(--champagne-soft), var(--champagne));
+  border: 1px solid var(--champagne-warm);
+  color: var(--ivory);
+  text-decoration: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-transform: uppercase;
+  border-radius: 2px;
+  box-shadow: 0 4px 12px rgba(196, 160, 90, 0.3);
+}
+
+.btn-primary:hover {
+  background: linear-gradient(135deg, var(--champagne), var(--champagne-warm));
+  box-shadow: 0 6px 16px rgba(196, 160, 90, 0.4);
+  transform: translateY(-2px);
+}
+
+/* Mobile Responsive Styles for New Pages */
+@media (max-width: 720px) {
+  .page-content {
+    padding-top: 80px;
+  }
+
+  .page-hero {
+    padding: 80px 5vw 60px;
+  }
+
+  .page-title {
+    font-size: clamp(2rem, 8vw, 3rem);
+  }
+
+  .shop-section {
+    padding: 60px 5vw 80px;
+  }
+
+  .shop-filters {
+    gap: 12px;
+  }
+
+  .filter-btn {
+    font-size: 0.8rem;
+    padding: 10px 20px;
+  }
+
+  .shop-grid {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+
+  .about-intro,
+  .about-philosophy,
+  .about-locations {
+    padding: 60px 5vw;
+  }
+
+  .philosophy-grid {
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+
+  .philosophy-card {
+    padding: 36px 24px;
+  }
+
+  .locations-grid {
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+
+  .contact-section {
+    padding: 60px 5vw 80px;
+  }
+
+  .contact-wrapper {
+    grid-template-columns: 1fr;
+    gap: 60px;
+  }
+
+  .contact-form {
+    padding: 32px 24px;
+  }
+
+  .locations-map {
+    padding: 80px 5vw;
+  }
+
+  .cta-section {
+    padding: 80px 5vw;
+  }
+
+  .btn-primary,
+  .btn-submit {
+    width: 100%;
+    max-width: 320px;
   }
 }
