@@ -212,3 +212,91 @@ if (contactForm) {
     contactForm.reset();
   });
 }
+
+// Instagram Slider Navigation
+document.addEventListener('DOMContentLoaded', () => {
+  const sliders = document.querySelectorAll('.instagram-slider');
+  
+  sliders.forEach(slider => {
+    const track = slider.querySelector('.slider-track');
+    const prevBtn = slider.querySelector('.slider-prev');
+    const nextBtn = slider.querySelector('.slider-next');
+    const items = slider.querySelectorAll('.slider-item');
+    
+    if (!track || !prevBtn || !nextBtn || items.length === 0) return;
+    
+    let currentIndex = 0;
+    const itemsToShow = window.innerWidth <= 720 ? 2.5 : 5;
+    const maxIndex = Math.max(0, items.length - itemsToShow);
+    
+    function updateSlider() {
+      const itemWidth = items[0].offsetWidth;
+      const gap = 16;
+      const offset = currentIndex * (itemWidth + gap);
+      track.style.transform = `translateX(-${offset}px)`;
+      
+      // Update button states
+      prevBtn.style.opacity = currentIndex === 0 ? '0.3' : '1';
+      prevBtn.style.cursor = currentIndex === 0 ? 'default' : 'pointer';
+      nextBtn.style.opacity = currentIndex >= maxIndex ? '0.3' : '1';
+      nextBtn.style.cursor = currentIndex >= maxIndex ? 'default' : 'pointer';
+    }
+    
+    prevBtn.addEventListener('click', () => {
+      if (currentIndex > 0) {
+        currentIndex--;
+        updateSlider();
+      }
+    });
+    
+    nextBtn.addEventListener('click', () => {
+      if (currentIndex < maxIndex) {
+        currentIndex++;
+        updateSlider();
+      }
+    });
+    
+    // Touch/swipe support for mobile
+    let touchStartX = 0;
+    let touchEndX = 0;
+    
+    track.addEventListener('touchstart', (e) => {
+      touchStartX = e.changedTouches[0].screenX;
+    }, { passive: true });
+    
+    track.addEventListener('touchend', (e) => {
+      touchEndX = e.changedTouches[0].screenX;
+      handleSwipe();
+    }, { passive: true });
+    
+    function handleSwipe() {
+      const swipeThreshold = 50;
+      const diff = touchStartX - touchEndX;
+      
+      if (Math.abs(diff) > swipeThreshold) {
+        if (diff > 0 && currentIndex < maxIndex) {
+          // Swipe left - next
+          currentIndex++;
+          updateSlider();
+        } else if (diff < 0 && currentIndex > 0) {
+          // Swipe right - prev
+          currentIndex--;
+          updateSlider();
+        }
+      }
+    }
+    
+    // Reset on window resize
+    let resizeTimeout;
+    window.addEventListener('resize', () => {
+      clearTimeout(resizeTimeout);
+      resizeTimeout = setTimeout(() => {
+        currentIndex = 0;
+        updateSlider();
+      }, 250);
+    });
+    
+    // Initial update
+    updateSlider();
+  });
+});
