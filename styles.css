@@ -3243,29 +3243,29 @@ section {
   }
 
   .slider-container {
-    padding: 0 32px;
+    padding: 0 48px;
   }
 
   .slider-track {
-    gap: 12px;
+    gap: 16px;
   }
 
   .slider-item {
-    flex: 0 0 calc((100% - 24px) / 2.5);
-    min-width: calc((100% - 24px) / 2.5);
+    flex: 0 0 calc((100% - 16px) / 1.5);
+    min-width: calc((100% - 16px) / 1.5);
   }
 
   .slider-btn {
-    width: 40px;
-    height: 40px;
+    width: 44px;
+    height: 44px;
   }
 
   .slider-prev {
-    left: 4vw;
+    left: 2vw;
   }
 
   .slider-next {
-    right: 4vw;
+    right: 2vw;
   }
 
   .slider-btn svg {
