@@ -2124,27 +2124,11 @@ section {
 }
 
 .product-card:hover .product-overlay {
-  opacity: 1;
+  opacity: 0;
 }
 
 .btn-view {
-  font-family: "Inter", sans-serif;
-  font-size: 0.88rem;
-  font-weight: 400;
-  letter-spacing: 0.08em;
-  padding: 14px 32px;
-  background: rgba(246, 241, 232, 0.95);
-  border: 1px solid var(--champagne);
-  color: var(--text);
-  cursor: pointer;
-  transition: all 0.3s ease;
-  text-transform: uppercase;
-  border-radius: 2px;
-}
-
-.btn-view:hover {
-  background: var(--champagne);
-  color: var(--ivory);
+  display: none;
 }
 
 .product-info {
